@@ -31,6 +31,23 @@ public class ClienteServiceImpl  implements ClienteService {
     }
 
     @Override
+    public Cliente obtenerCliente(Integer id) {
+        var clienteEncontrado = repository.findById(id);
+        if (clienteEncontrado.isPresent()){
+            var cliente = new Cliente();
+            var clienteDao = clienteEncontrado.get();
+            cliente.setId(clienteDao.getId_cliente());
+            cliente.setNombre(clienteDao.getNombre());
+            cliente.setApellido(clienteDao.getApellido());
+            cliente.setDni(clienteDao.getDni());
+            cliente.setEmail(clienteDao.getCorreo());
+            return cliente;
+        } else{
+            return null;
+        }
+    }
+
+    @Override
     public Cliente registrar(Cliente a) {
         var clienteDao = new ClienteDao();
         clienteDao.setNombre(a.getNombre());

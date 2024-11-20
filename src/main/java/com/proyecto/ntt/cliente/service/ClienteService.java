@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface ClienteService {
     List<Cliente>listadeCliente();
+    Cliente obtenerCliente (Integer id );
     Cliente registrar(Cliente a);
     Cliente actualizar(Cliente a);
     void eliminar( Integer id);

@@ -2,6 +2,7 @@ package com.proyecto.ntt.cliente.controller;
 
 import com.proyecto.ntt.cliente.controller.dto.Cliente;
 import com.proyecto.ntt.cliente.service.ClienteService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +21,13 @@ public class ClienteController {
         return service.listadeCliente();
     }
 
+    @GetMapping("{id}")
+    public Cliente obtenerCliente (@PathVariable Integer id){
+        return service.obtenerCliente(id);
+    }
+
     @PostMapping
-    public Cliente registrar(@RequestBody Cliente a){
+    public Cliente registrar(@RequestBody @Valid Cliente a){
         return service.registrar(a);
     }
 
