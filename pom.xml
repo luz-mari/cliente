@@ -94,7 +94,6 @@
 				<version>3.6.0</version>
 				<configuration>
 					<configLocation>config/checkstyle/custom_checks.xml</configLocation>
-					<encoding>UTF-8</encoding>
 					<consoleOutput>true</consoleOutput>
 					<failsOnError>true</failsOnError> <!-- Detiene la construcción si hay violaciones -->
 				</configuration>
